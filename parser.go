@@ -940,7 +940,7 @@ func (p *Parser) parseColumnOption(ctx *parseCtx, col model.TableColumn, f int) 
 			}
 			ctx.skipWhiteSpaces()
 			v := ctx.next()
-			col.SetAutoUpdate(v.Value)
+			col.SetAutoUpdate(strings.ToUpper(v.Value))
 		case DEFAULT:
 			if !check(coloptDefault) {
 				return newParseError(ctx, t, "cannot apply DEFAULT")
